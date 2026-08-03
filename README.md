@@ -1,2 +1,2 @@
 # courtio-vitrine-before
-Site Web, datant de Courtio
+Site Web, before de Courtio
