@@ -142,7 +142,7 @@ document.getElementById('contactForm').addEventListener('submit',e=>{
   const message=f.get('message')||'';
   const subject=encodeURIComponent('Prise de contact — Courtio');
   const body=encodeURIComponent(`Bonjour Courtio,\n\n${message||"Je souhaite échanger avec vous."}\n\nNom : ${prenom} ${nom}\nTéléphone : ${telephone}\nEmail : ${email}`);
-  window.location.href=`mailto:wilfried.bellon@courtio.fr?subject=${subject}&body=${body}`;
+  window.location.href=`mailto:contact@courtio.fr?subject=${subject}&body=${body}`;
 });
 </script>
 </body>
