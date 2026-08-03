@@ -1,0 +1,64 @@
+/* ============================================================
+   COURTIO ATLAS — Base reset & ambient effects
+   Minimal reset + the signature mesh-gradient background and
+   floating brand orbs used behind app shells.
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: var(--surface-app);
+  color: var(--text-primary);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--emerald-dark); text-decoration: none; }
+a:hover { color: var(--emerald); }
+
+/* ── Mesh gradient: blurred brand orbs (breathing) ───────── */
+.mesh {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 12% 8%, var(--emerald-50) 0%, transparent 55%),
+    radial-gradient(110% 90% at 92% 14%, var(--prussian-50) 0%, transparent 55%),
+    var(--surface-app);
+}
+.mesh .orb {
+  position: absolute;
+  border-radius: var(--radius-full);
+  filter: blur(76px);
+  opacity: 0.32;
+  will-change: transform, opacity;
+}
+@keyframes breathe1 {
+  0%, 100% { transform: translate(0, 0) scale(1);     opacity: 0.26; }
+  50%      { transform: translate(4vw, 3vw) scale(1.16); opacity: 0.38; }
+}
+@keyframes breathe2 {
+  0%, 100% { transform: translate(0, 0) scale(1);      opacity: 0.26; }
+  50%      { transform: translate(-3vw, 5vw) scale(1.16); opacity: 0.38; }
+}
+@keyframes breathe3 {
+  0%, 100% { transform: translate(0, 0) scale(1);       opacity: 0.26; }
+  50%      { transform: translate(3vw, -4vw) scale(1.16); opacity: 0.38; }
+}
+@keyframes breathe4 {
+  0%, 100% { transform: translate(0, 0) scale(1);        opacity: 0.26; }
+  50%      { transform: translate(-4vw, -3vw) scale(1.16); opacity: 0.38; }
+}
+.orb.emerald  { background: radial-gradient(circle, var(--emerald) 0%, transparent 70%); }
+.orb.mint     { background: radial-gradient(circle, var(--mint) 0%, transparent 70%); }
+.orb.prussian { background: radial-gradient(circle, var(--prussian-light) 0%, transparent 70%); }
+.orb.navy     { background: radial-gradient(circle, var(--navy-light) 0%, transparent 72%); }
+.orb.o1 { width: 46vw; height: 46vw; top: -12vw; left: -8vw;    animation: breathe1 15s var(--ease-default) infinite; }
+.orb.o2 { width: 40vw; height: 40vw; top: -6vw;  right: -6vw;   animation: breathe2 17s var(--ease-default) infinite -3s; }
+.orb.o3 { width: 50vw; height: 50vw; bottom: -18vw; left: 18vw; animation: breathe3 19s var(--ease-default) infinite -6s; }
+.orb.o4 { width: 34vw; height: 34vw; bottom: -10vw; right: 4vw; animation: breathe4 14s var(--ease-default) infinite -2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh .orb { animation: none; }
+}

@@ -1,0 +1,73 @@
+/* ============================================================
+   COURTIO ATLAS — Color tokens
+   Palette: "confiance, technologie, finance" — deep prussian/navy
+   blues paired with emerald/mint greens (action & growth).
+   ============================================================ */
+:root {
+  /* ── Brand · Emerald (primary / action) ─────────────────── */
+  --emerald:        #2DBE78;
+  --emerald-light:  #3DD68C;
+  --emerald-dark:   #22A366;
+  --emerald-50:     #EDFAF4;
+  --emerald-100:    #D0F5E4;
+
+  /* ── Brand · Mint (accent) ──────────────────────────────── */
+  --mint:           #66D9A5;
+  --mint-light:     #A8ECC8;
+
+  /* ── Brand · Prussian (dominant / primary text) ─────────── */
+  --prussian:       #1A3D5D;
+  --prussian-light: #2A5580;
+  --prussian-50:    #EBF1F8;
+  --prussian-100:   #C8D9EC;
+
+  /* ── Brand · Navy (dark surfaces / sidebar / hero) ──────── */
+  --navy:           #0F2540;
+  --navy-light:     #162F50;
+
+  /* ── Neutrals (cool grey ramp) ──────────────────────────── */
+  --white:          #FFFFFF;
+  --gray-50:        #F7F9FB;
+  --gray-100:       #EEF2F6;
+  --gray-200:       #DCE4ED;
+  --gray-300:       #C5D0DC;
+  --gray-400:       #9AAFC5;
+  --gray-500:       #7A92A8;
+  --gray-600:       #5A7491;
+  --gray-700:       #3D566E;
+  --gray-800:       #243D55;
+  --gray-900:       #132233;
+
+  /* ── Semantic ───────────────────────────────────────────── */
+  --success:        #2DBE78;
+  --success-bg:     #EDFAF4;
+  --warning:        #F59E0B;
+  --warning-bg:     #FFFBEB;
+  --error:          #EF4444;
+  --error-bg:       #FEF2F2;
+  --info:           #3B82F6;
+  --info-bg:        #EFF6FF;
+
+  /* Accents Atlas */
+  --violet:         #7C5BF2; /* scoring / IA */
+  --violet-bg:      #F3EFFE;
+  --amber:          #F59E0B; /* en cours */
+
+  /* ── Surfaces ───────────────────────────────────────────── */
+  --surface-app:     #F7F9FB;
+  --surface-card:    #FFFFFF;
+  --surface-sidebar: #0F2540;
+  --surface-overlay: rgba(15, 37, 64, 0.6);
+
+  /* ── Text ───────────────────────────────────────────────── */
+  --text-primary:   #1A3D5D;
+  --text-secondary: #5A7491;
+  --text-tertiary:  #9AAFC5;
+  --text-inverse:   #FFFFFF;
+  --text-on-dark:   rgba(255, 255, 255, 0.85);
+
+  /* ── Borders ────────────────────────────────────────────── */
+  --border-default: #EEF2F6;
+  --border-strong:  #C5D0DC;
+  --border-focus:   #2DBE78;
+}

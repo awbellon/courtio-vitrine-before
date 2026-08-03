@@ -1,0 +1,115 @@
+/* ============================================================
+   COURTIO ATLAS — Typography tokens & semantic roles
+   ============================================================ */
+:root {
+  /* ── Font families ──────────────────────────────────────── */
+  --font-display: "Plus Jakarta Sans", "Helvetica Neue", sans-serif;
+  --font-body:    "Plus Jakarta Sans", "Helvetica Neue", sans-serif;
+  --font-mono:    "JetBrains Mono", "Fira Code", monospace;
+
+  /* ── Type scale ─────────────────────────────────────────── */
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   20px;
+  --text-xl:   24px;
+  --text-2xl:  28px;
+  --text-3xl:  32px;
+  --text-4xl:  40px;
+  --text-5xl:  48px;
+  --text-6xl:  56px;
+
+  /* ── Weights ────────────────────────────────────────────── */
+  --fw-regular:   400; /* @kind font */
+  --fw-medium:    500; /* @kind font */
+  --fw-semibold:  600; /* @kind font */
+  --fw-bold:      700; /* @kind font */
+  --fw-extrabold: 800; /* @kind font */
+
+  /* ── Line heights ───────────────────────────────────────── */
+  --lh-tight:   1.2;  /* @kind font */
+  --lh-snug:    1.35; /* @kind font */
+  --lh-normal:  1.5;  /* @kind font */
+  --lh-relaxed: 1.65; /* @kind font */
+
+  /* ── Letter spacing ─────────────────────────────────────── */
+  --ls-tight:  -0.02em; /* @kind font */
+  --ls-normal:  0em;    /* @kind font */
+  --ls-wide:    0.04em; /* @kind font */
+  --ls-wider:   0.08em; /* @kind font */
+}
+
+/* ── Headings — Plus Jakarta Sans display ─────────────────── */
+h1, .h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+}
+h2, .h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+}
+h3, .h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  color: var(--text-primary);
+}
+h4, .h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  color: var(--text-primary);
+}
+h5, .h5 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-normal);
+  color: var(--text-primary);
+}
+h6, .h6 {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-normal);
+  color: var(--text-primary);
+}
+
+/* ── Body — Plus Jakarta Sans ─────────────────────────────── */
+body, p, .body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--text-primary);
+}
+.body-sm { font-family: var(--font-body); font-size: var(--text-sm); line-height: var(--lh-normal); }
+.body-xs { font-family: var(--font-body); font-size: var(--text-xs); line-height: var(--lh-normal); }
+
+/* Uppercase micro-label — used everywhere for field & section labels */
+.label {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* Data / numbers / code — JetBrains Mono */
+code, pre, .mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-regular);
+}
