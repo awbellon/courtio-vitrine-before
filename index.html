@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Courtio — Arrive très prochainement</title>
+<title>Courtio — 6 cartes, effet pixel (ATC)</title>
 <link rel="icon" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,18 +39,31 @@ html,body{margin:0;height:auto;min-height:100%;overflow-y:auto}
 .shoot::before{content:"";position:absolute;top:0;left:0;width:2px;height:2px;border-radius:50%;background:#fff;box-shadow:0 0 10px 2px rgba(255,255,255,.9)}
 .shoot::after{content:"";position:absolute;top:1px;left:2px;width:140px;height:1px;transform-origin:left center;background:linear-gradient(90deg,rgba(255,255,255,.85),transparent)}
 @keyframes shootAcross{0%{opacity:0;transform:rotate(var(--ang)) translateX(0)}6%{opacity:1}75%{opacity:.7}100%{opacity:0;transform:rotate(var(--ang)) translateX(-320px)}}
-.feature-list{list-style:none;display:flex;flex-wrap:wrap;gap:10px 14px;justify-content:center;padding:0;margin:30px 0 0;max-width:48ch}
-.feature-list li{display:flex;align-items:center;gap:7px;font-size:.85rem;color:rgba(255,255,255,.7);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:7px 13px;border-radius:999px}
-.feature-list i{width:14px;height:14px;color:var(--mint)}
-.contact-panel{display:none;margin-top:22px;text-align:left;width:100%;max-width:420px}
-.contact-panel.show{display:block;animation:panelIn .35s cubic-bezier(.16,1,.3,1)}
-@keyframes panelIn{from{opacity:0;transform:translateY(-8px) scale(.98)}to{opacity:1;transform:none}}
-.contact-panel .field{margin-bottom:14px}
-.contact-panel label{display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:7px}
-.contact-panel input,.contact-panel textarea{width:100%;box-sizing:border-box;font-family:inherit;font-size:.95rem;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff}
-.contact-panel input::placeholder,.contact-panel textarea::placeholder{color:rgba(255,255,255,.4)}
-.contact-panel textarea{resize:vertical;min-height:76px}
-.contact-panel input:focus,.contact-panel textarea:focus{outline:none;border-color:var(--mint)}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:760px;margin:34px 0 0;width:100%}
+.feat-card{position:relative}
+.pix-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(26,1fr);grid-template-rows:repeat(14,1fr);pointer-events:none;z-index:3}
+.pix-grid i{background:rgba(13,26,43,.97);opacity:0;transform:scale(1.4);transition:opacity .13s linear,transform .13s linear}
+.pix-grid i.on{opacity:1;transform:scale(1)}
+.feat-inner{position:relative;z-index:2;height:100%}
+.feat-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:22px 26px;text-align:left;opacity:0;transform:translateY(14px) scale(1);animation:featIn .6s cubic-bezier(.16,1,.3,1) forwards;transition:background .25s,border-color .25s,transform .3s,box-shadow .3s;height:164px;box-sizing:border-box;overflow:hidden}
+.feat-card:hover{background:rgba(255,255,255,.1);border-color:rgba(102,217,165,.4);transform:scale(1.08);z-index:2;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.feat-card:hover .feat-icon{background:rgba(102,217,165,.3)}
+.feat-card:hover .feat-icon.prussian{background:rgba(58,110,165,.4)}
+.feat-card:hover .feat-icon.violet{background:rgba(167,139,250,.38)}
+.feat-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.feat-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none;background:rgba(102,217,165,.16);transition:background .3s}
+.feat-icon.prussian{background:rgba(58,110,165,.22)}
+.feat-icon.violet{background:rgba(167,139,250,.2)}
+.feat-icon i{width:19px;height:19px;color:var(--mint)}
+.feat-icon.prussian i{color:var(--prussian-light)}
+.feat-icon.violet i{color:#a78bfa}
+.feat-card h3{font-size:1.02rem;margin:0;color:#fff;font-weight:800;letter-spacing:-.01em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.feat-card p{font-size:.83rem;margin:0;color:rgba(255,255,255,.62);line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.more-note{margin:28px 0 0;padding:12px 22px;border-radius:999px;background:rgba(102,217,165,.1);border:1px solid rgba(102,217,165,.3);font-size:.9rem;font-weight:600;color:var(--mint)}
+.astro-word{color:var(--mint);font-weight:800;filter:blur(.3px);text-shadow:0 0 10px rgba(102,217,165,.6)}
+.astro-ghost{position:fixed;bottom:0;right:0;width:min(30vw,360px);opacity:.035;z-index:0;pointer-events:none;filter:saturate(0.8)}
+@keyframes featIn{to{opacity:1;transform:none}}
+@media (max-width:640px){.feat-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body class="navy-bg">
@@ -64,19 +77,61 @@ html,body{margin:0;height:auto;min-height:100%;overflow-y:auto}
 <div class="pill pill-live" style="margin-bottom:26px"><span class="dot"></span>Bientôt disponible</div>
 <h1 class="soon-h1 on-dark">Le CRM qui va enfin simplifier le courtage.</h1>
 <p class="lead on-dark soon-lead" id="tagline">On vous prépare un CRM qui va faire décoller votre cabinet&nbsp;: portefeuille, commissions, prospects et gestionnaires enfin réunis au même endroit.<br>
-Astro met la dernière touche — restez à l'écoute.</p>
-<ul class="feature-list">
-<li><i data-lucide="layers"></i>Portefeuille consolidé</li>
-<li><i data-lucide="plug-zap"></i>Gestionnaires connectés</li>
-<li><i data-lucide="sparkles"></i>Coaching par l'IA</li>
-<li><i data-lucide="target"></i>Gestion des prospects</li>
-</ul>
-</div>
+<span class="astro-word">Astro</span>, notre mascotte, met la dernière touche — restez à l'écoute.</p>
+<div class="feat-grid" id="featGrid"></div>
+<p class="more-note">Et bien d'autres fonctionnalités à découvrir très prochainement.</p>
+
 
 <footer class="soon-footer">© 2026 Courtio — Le courtage en plein envol.</footer>
+<img src="astro.svg" class="astro-ghost" alt="" aria-hidden="true">
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <script>
+if(window.lucide) lucide.createIcons();
+const FEATS=[{"i":"layers","c":"","t":"Le portefeuille unifié","d":"Fiches clients, contrats multi-gestionnaires et recherche instantanée : tout votre cabinet sur un seul écran."},{"i":"plug-zap","c":"prussian","t":"Le hub des gestionnaires","d":"Gestionnaires, grossistes et compagnies connectés à un point unique."},{"i":"shopping-cart","c":"violet","t":"Du devis à la signature","d":"Comparateur, panier multi-produit et tunnel de souscription : le parcours de vente, de bout en bout."},{"i":"refresh-cw","c":"","t":"Zéro ressaisie","d":"Une vue consolidée où les données se synchronisent, vous pilotez au lieu de recopier."},{"i":"columns-3","c":"violet","t":"Le pipeline sans fuite","d":"Du contact à la signature, chaque opportunité avance avec un objectif toujours visible."},{"i":"coins","c":"","t":"La chasse aux commissions","d":"Consolidation automatique et détection des écarts, gestionnaire par gestionnaire."},{"i":"trending-up","c":"prussian","t":"Le radar des tendances","d":"Suivez l'évolution de votre activité mois après mois et anticipez vos projections."},{"i":"calendar-clock","c":"violet","t":"La planification qui tient","d":"Journées ordonnées, relances programmées et renouvellements anticipés : plus rien ne file."},{"i":"user-round-check","c":"","t":"Espace client & prospect","d":"Un espace dédié où vos clients et prospects suivent leurs contrats et échangent avec vous."},{"i":"trophy","c":"violet","t":"Gamification","d":"XP à chaque action, séries de jours et badges à débloquer : la performance devient un jeu."},{"i":"sparkles","c":"violet","t":"Le copilote IA","d":"Astro analyse votre activité et vous souffle chaque matin la prochaine meilleure action."},{"i":"shield-check","c":"prussian","t":"La forteresse des données","d":"Chiffrement de bout en bout, hébergement en France et conformité RGPD."}];
+const SLOTS=4;
+let pool=FEATS.slice();
+let visible=pool.splice(0,SLOTS);
+let queue=pool;
+const featGrid=document.getElementById('featGrid');
+function cardHtml(f,n){return `<div class="feat-card" data-slot="${n}" style="animation-delay:${n*0.08}s"><div class="feat-inner"><div class="feat-head"><span class="feat-icon ${f.c}"><i data-lucide="${f.i}"></i></span><h3 class="feat-title">${f.t}</h3></div><p class="feat-desc">${f.d}</p></div><div class="pix-grid"></div></div>`;}
+featGrid.innerHTML=visible.map((f,n)=>cardHtml(f,n)).join('');
+if(window.lucide) lucide.createIcons();
+const COLS=26,ROWS=14;
+Array.prototype.slice.call(featGrid.children).forEach(function(card){
+  const grid=card.querySelector('.pix-grid');
+  for(let i=0;i<COLS*ROWS;i++) grid.appendChild(document.createElement('i'));
+});
+function pixelate(card,cb){
+  const tiles=Array.prototype.slice.call(card.querySelector('.pix-grid').children);
+  const order=tiles.map((t,idx)=>idx).sort(()=>Math.random()-0.5);
+  order.forEach((idx,n)=>{setTimeout(()=>tiles[idx].classList.add('on'),n*(420/tiles.length));});
+  setTimeout(cb,420+40);
+}
+function unpixelate(card){
+  const tiles=Array.prototype.slice.call(card.querySelector('.pix-grid').children);
+  const order=tiles.map((t,idx)=>idx).sort(()=>Math.random()-0.5);
+  order.forEach((idx,n)=>{setTimeout(()=>tiles[idx].classList.remove('on'),n*(420/tiles.length));});
+}
+function rotateRandomSlot(){
+  if(!queue.length)queue=visible.slice();
+  const slot=Math.floor(Math.random()*SLOTS);
+  const next=queue.shift();
+  const old=visible[slot];
+  visible[slot]=next;
+  queue.push(old);
+  const card=featGrid.children[slot];
+  pixelate(card,()=>{
+    const iconSpan=card.querySelector('.feat-icon');
+    iconSpan.className='feat-icon '+(next.c||'');
+    iconSpan.innerHTML='<i data-lucide="'+next.i+'"></i>';
+    if(window.lucide) lucide.createIcons();
+    card.querySelector('.feat-title').textContent=next.t;
+    card.querySelector('.feat-desc').textContent=next.d;
+    unpixelate(card);
+  });
+}
+setInterval(rotateRandomSlot,5000);
 if(window.lucide) lucide.createIcons();
 const starsEl=document.getElementById('stars');
 for(let i=0;i<70;i++){const s=document.createElement('span');s.className='tw';const size=Math.random()*2+1;s.style.width=size+'px';s.style.height=size+'px';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(Math.random()*3)+'s';s.style.animationDuration=(2+Math.random()*3)+'s';starsEl.appendChild(s);}
@@ -106,28 +161,6 @@ astro.addEventListener('click',()=>{
   idx=(idx+1)%lines.length;
   tag.style.opacity=0;
   setTimeout(()=>{tag.textContent=lines[idx];tag.style.transition='opacity .3s';tag.style.opacity=1;},200);
-});
-const contactToggle=document.getElementById('contactToggle');
-const contactPanel=document.getElementById('contactPanel');
-contactToggle.addEventListener('click',(e)=>{
-  e.preventDefault();
-  e.stopPropagation();
-  contactPanel.classList.toggle('show');
-  if(contactPanel.classList.contains('show')){
-    setTimeout(()=>contactPanel.querySelector('input[name="prenom"]').focus(),300);
-  }
-});
-document.getElementById('contactForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const f=new FormData(e.target);
-  const prenom=f.get('prenom')||'';
-  const nom=f.get('nom')||'';
-  const telephone=f.get('telephone')||'';
-  const email=f.get('email')||'';
-  const message=f.get('message')||'';
-  const subject=encodeURIComponent('Prise de contact — Courtio');
-  const body=encodeURIComponent(`Bonjour Courtio,\n\n${message||"Je souhaite échanger avec vous."}\n\nNom : ${prenom} ${nom}\nTéléphone : ${telephone}\nEmail : ${email}`);
-  window.location.href=`mailto:contact@courtio.fr?subject=${subject}&body=${body}`;
 });
 </script>
 </body>
