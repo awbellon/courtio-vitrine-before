@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courtio — Arrive très prochainement</title>
+<link rel="icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="assets/vitrine.css">
+<style>
+html,body{margin:0;height:auto;min-height:100%;overflow-y:auto}
+.soon-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 24px;position:relative;z-index:2}
+.soon-logo{height:34px;margin-bottom:52px}
+.soon-astro{width:clamp(80px,10vw,120px);margin:0 auto 30px;filter:drop-shadow(0 20px 40px rgba(45,190,120,.5));cursor:pointer;transition:transform .15s}
+.soon-astro:hover{transform:scale(1.08) rotate(-4deg)}
+.soon-astro:active{transform:scale(.94)}
+.soon-h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.12;margin:0 0 20px;max-width:18ch}
+.soon-lead{max-width:52ch;margin:0 auto;min-height:2.6em}
+.soon-footer{position:relative;z-index:2;padding:26px 24px 34px;text-align:center;font-size:.85rem;color:rgba(255,255,255,.5)}
+.soon-footer a{color:rgba(255,255,255,.75)}
+.soon-footer a:hover{color:var(--mint)}
+.contact-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:38px;flex-wrap:wrap}
+#stars{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.tw{position:absolute;background:#fff;border-radius:50%;animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.9}}
+.aurora{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aurora span{position:absolute;width:55%;height:170%;filter:blur(55px);opacity:.44;border-radius:50%;mix-blend-mode:screen}
+.aurora span.a1{top:-30%;left:-15%;background:linear-gradient(180deg,var(--emerald),transparent 70%);animation:auroraDrift1 20s ease-in-out infinite}
+.aurora span.a2{top:-30%;left:55%;background:linear-gradient(180deg,var(--mint),transparent 70%);opacity:.4;animation:auroraDrift2 24s ease-in-out infinite}
+.aurora span.a3{bottom:-30%;left:60%;background:linear-gradient(180deg,transparent 30%,var(--prussian-light));opacity:.36;animation:auroraDrift1 28s ease-in-out infinite reverse}
+@keyframes auroraDrift1{0%,100%{transform:translate(0,0) scaleY(1)}50%{transform:translate(18%,6%) scaleY(1.25)}}
+@keyframes auroraDrift2{0%,100%{transform:translate(0,0) scaleY(1.05)}50%{transform:translate(-22%,-5%) scaleY(.9)}}
+.hint{font-size:.78rem;color:rgba(255,255,255,.4);margin-top:10px}
+#shoots{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+.shoot{position:absolute;width:0;height:0}
+.shoot::before{content:"";position:absolute;top:0;left:0;width:2px;height:2px;border-radius:50%;background:#fff;box-shadow:0 0 10px 2px rgba(255,255,255,.9)}
+.shoot::after{content:"";position:absolute;top:1px;left:2px;width:140px;height:1px;transform-origin:left center;background:linear-gradient(90deg,rgba(255,255,255,.85),transparent)}
+@keyframes shootAcross{0%{opacity:0;transform:rotate(var(--ang)) translateX(0)}6%{opacity:1}75%{opacity:.7}100%{opacity:0;transform:rotate(var(--ang)) translateX(-320px)}}
+.feature-list{list-style:none;display:flex;flex-wrap:wrap;gap:10px 14px;justify-content:center;padding:0;margin:30px 0 0;max-width:48ch}
+.feature-list li{display:flex;align-items:center;gap:7px;font-size:.85rem;color:rgba(255,255,255,.7);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:7px 13px;border-radius:999px}
+.feature-list i{width:14px;height:14px;color:var(--mint)}
+.contact-panel{display:none;margin-top:22px;text-align:left;width:100%;max-width:420px}
+.contact-panel.show{display:block;animation:panelIn .35s cubic-bezier(.16,1,.3,1)}
+@keyframes panelIn{from{opacity:0;transform:translateY(-8px) scale(.98)}to{opacity:1;transform:none}}
+.contact-panel .field{margin-bottom:14px}
+.contact-panel label{display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:7px}
+.contact-panel input,.contact-panel textarea{width:100%;box-sizing:border-box;font-family:inherit;font-size:.95rem;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff}
+.contact-panel input::placeholder,.contact-panel textarea::placeholder{color:rgba(255,255,255,.4)}
+.contact-panel textarea{resize:vertical;min-height:76px}
+.contact-panel input:focus,.contact-panel textarea:focus{outline:none;border-color:var(--mint)}
+</style>
+</head>
+<body class="navy-bg">
+<div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div id="stars"></div>
+<div id="shoots"></div>
+
+<div class="soon-wrap">
+<img src="assets/logo-plain-light.svg" alt="Courtio" class="soon-logo">
+<img src="assets/astro.svg" class="soon-astro astro-float" alt="Astro, la mascotte Courtio" id="astro">
+<div class="pill pill-live" style="margin-bottom:26px"><span class="dot"></span>Bientôt disponible</div>
+<h1 class="soon-h1 on-dark">Le CRM qui va enfin simplifier le courtage.</h1>
+<p class="lead on-dark soon-lead" id="tagline">On vous prépare un CRM qui va faire décoller votre cabinet&nbsp;: portefeuille, commissions, prospects et gestionnaires enfin réunis au même endroit.<br>
+Astro met la dernière touche — restez à l'écoute.</p>
+<ul class="feature-list">
+<li><i data-lucide="layers"></i>Portefeuille consolidé</li>
+<li><i data-lucide="plug-zap"></i>Gestionnaires connectés</li>
+<li><i data-lucide="sparkles"></i>Coaching par l'IA</li>
+<li><i data-lucide="target"></i>Gestion des prospects</li>
+</ul>
+<div class="contact-row">
+<button class="btn btn-ghost" id="contactToggle" type="button">Nous écrire <i data-lucide="mail"></i></button>
+</div>
+<div class="contact-panel glass-dark" id="contactPanel" style="padding:22px 24px">
+<form id="contactForm">
+<div style="display:flex;gap:12px">
+<div class="field" style="flex:1"><label>Prénom</label><input name="prenom" placeholder="Prénom" required></div>
+<div class="field" style="flex:1"><label>Nom</label><input name="nom" placeholder="Nom" required></div>
+</div>
+<div class="field"><label>Téléphone</label><input type="tel" name="telephone" placeholder="06 12 34 56 78"></div>
+<div class="field"><label>Email</label><input type="email" name="email" placeholder="prenom.nom@cabinet.fr" required></div>
+<div class="field"><label>Description</label><textarea name="message" placeholder="Dites-nous en un mot ce qui vous amène…"></textarea></div>
+<button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">Ouvrir dans ma messagerie <i data-lucide="arrow-right"></i></button>
+</form>
+</div>
+</div>
+
+<footer class="soon-footer">© 2026 Courtio — Le courtage en plein envol.</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script>
+if(window.lucide) lucide.createIcons();
+const starsEl=document.getElementById('stars');
+for(let i=0;i<70;i++){const s=document.createElement('span');s.className='tw';const size=Math.random()*2+1;s.style.width=size+'px';s.style.height=size+'px';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(Math.random()*3)+'s';s.style.animationDuration=(2+Math.random()*3)+'s';starsEl.appendChild(s);}
+
+const lines=["Un portefeuille et des commissions enfin réunis au même endroit.","Toutes vos connexions gestionnaires, dans un seul cockpit.","Une IA qui vous souffle chaque matin la prochaine action à mener.","Fini les ressaisies entre extranets.","Le lancement approche — encore un peu de patience.","Merci de votre confiance, la suite arrive très vite."];
+let idx=0;
+const tag=document.getElementById('tagline');
+const astro=document.getElementById('astro');
+const shootsEl=document.getElementById('shoots');
+function spawnShootingStar(){
+  const s=document.createElement('span');
+  s.className='shoot';
+  const ang=18+Math.random()*20;
+  s.style.setProperty('--ang',ang+'deg');
+  s.style.left=(30+Math.random()*55)+'%';
+  s.style.top=(Math.random()*35)+'%';
+  s.style.animation=`shootAcross ${1+Math.random()*.5}s ease-out forwards`;
+  shootsEl.appendChild(s);
+  setTimeout(()=>s.remove(),2000);
+}
+function scheduleShootingStars(){
+  spawnShootingStar();
+  setTimeout(scheduleShootingStars,4000+Math.random()*5000);
+}
+setTimeout(scheduleShootingStars,1500);
+astro.addEventListener('click',()=>{
+  idx=(idx+1)%lines.length;
+  tag.style.opacity=0;
+  setTimeout(()=>{tag.textContent=lines[idx];tag.style.transition='opacity .3s';tag.style.opacity=1;},200);
+});
+const contactToggle=document.getElementById('contactToggle');
+const contactPanel=document.getElementById('contactPanel');
+contactToggle.addEventListener('click',(e)=>{
+  e.preventDefault();
+  e.stopPropagation();
+  contactPanel.classList.toggle('show');
+  if(contactPanel.classList.contains('show')){
+    setTimeout(()=>contactPanel.querySelector('input[name="prenom"]').focus(),300);
+  }
+});
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=new FormData(e.target);
+  const prenom=f.get('prenom')||'';
+  const nom=f.get('nom')||'';
+  const telephone=f.get('telephone')||'';
+  const email=f.get('email')||'';
+  const message=f.get('message')||'';
+  const subject=encodeURIComponent('Prise de contact — Courtio');
+  const body=encodeURIComponent(`Bonjour Courtio,\n\n${message||"Je souhaite échanger avec vous."}\n\nNom : ${prenom} ${nom}\nTéléphone : ${telephone}\nEmail : ${email}`);
+  window.location.href=`mailto:wilfried.bellon@courtio.fr?subject=${subject}&body=${body}`;
+});
+</script>
+</body>
+</html>
