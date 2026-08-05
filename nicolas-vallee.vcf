@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Nicolas VALLEE
+N:VALLEE;Nicolas;;;
+EMAIL;TYPE=INTERNET;TYPE=WORK:nicolas.vallee@courtio.fr
+TEL;TYPE=CELL:06 42 67 19 07
+ORG:Courtio
+TITLE:Associé Fondateur
+URL;TYPE=WORK:https\://courtio.fr
+PHOTO:https://courtio.fr/nicolas.jpeg
+CATEGORIES:myContacts
+END:VCARD
